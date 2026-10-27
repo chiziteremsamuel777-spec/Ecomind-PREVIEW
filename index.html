@@ -1,0 +1,1420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EcoMind — Buy less. Buy better.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EcoMind — thoughtfully made, low-waste goods for everyday life.">
+
+<style>
+:root {
+    --green: #146c43;
+    --green-dark: #0f5132;
+    --text: #1f2933;
+    --muted: #64748b;
+    --bg: #ffffff;
+    --soft: #f4f8f5;
+    --border: #dce7df;
+    --shadow: 0 18px 45px rgba(20, 60, 40, .12);
+}
+
+body.dark {
+    --text: #f1f5f9;
+    --muted: #cbd5e1;
+    --bg: #0f172a;
+    --soft: #1e293b;
+    --border: #334155;
+    --shadow: 0 18px 45px rgba(0, 0, 0, .35);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.announcement {
+    background: #10251a;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.icon-btn {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    cursor: pointer;
+    position: relative;
+}
+
+.count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: var(--green);
+    color: white;
+    font-size: 11px;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+
+.hero {
+    background:
+        radial-gradient(circle at top left, rgba(20,108,67,.18), transparent 35%),
+        linear-gradient(135deg, var(--soft), var(--bg));
+    padding: 88px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(20, 108, 67, .1);
+    color: var(--green);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: .95;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 20px;
+    max-width: 560px;
+    margin-bottom: 32px;
+}
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.btn {
+    border: 0;
+    padding: 15px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 900;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+    box-shadow: 0 14px 28px rgba(20,108,67,.22);
+}
+
+.btn-primary:hover {
+    background: var(--green-dark);
+}
+
+.btn-secondary {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    color: var(--text);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-stats strong {
+    display: block;
+    font-size: 24px;
+    color: var(--text);
+}
+
+.hero-stats span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.hero-image {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    min-height: 430px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section {
+    padding: 82px 0;
+}
+
+.section-soft {
+    background: var(--soft);
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-head h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.section-head p {
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.filter-btn.active {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+.sort {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 700;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30,60,40,.06);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.card-img {
+    height: 230px;
+    background: var(--soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge-product {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--green);
+    color: white;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 900;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.category {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    margin-bottom: 6px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    min-height: 44px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #f59e0b;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.price {
+    color: var(--green);
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.original {
+    color: var(--muted);
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.card-actions {
+    display: grid;
+    grid-template-columns: 1fr 46px;
+    gap: 8px;
+}
+
+.quick {
+    border: 1px solid var(--border);
+    background: var(--soft);
+    color: var(--text);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 54px;
+    align-items: center;
+}
+
+.story h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+.story p {
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 26px;
+}
+
+.value {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.value strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.value span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.story-img {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.review {
+    background: var(--soft);
+    border-left: 5px solid var(--green);
+    border-radius: 20px;
+    padding: 26px;
+}
+
+.review p {
+    color: var(--text);
+    font-style: italic;
+    margin: 12px 0 18px;
+}
+
+.trust {
+    background: #10251a;
+    color: white;
+    padding: 64px 0;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    text-align: center;
+}
+
+.trust-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.trust p {
+    color: rgba(255,255,255,.72);
+    font-size: 14px;
+}
+
+.faq {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+}
+
+.faq-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.faq-q {
+    width: 100%;
+    background: none;
+    border: 0;
+    color: var(--text);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 900;
+    text-align: left;
+}
+
+.faq-a {
+    display: none;
+    color: var(--muted);
+    padding: 0 20px 20px;
+}
+
+.faq-item.open .faq-a {
+    display: block;
+}
+
+.newsletter-box {
+    max-width: 680px;
+    margin: auto;
+    text-align: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 46px;
+    box-shadow: var(--shadow);
+}
+
+.newsletter-box h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.newsletter-box p {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--soft);
+    color: var(--text);
+}
+
+.footer {
+    background: #0b1410;
+    color: white;
+    padding: 56px 0 28px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 34px;
+}
+
+.footer h3,
+.footer h4 {
+    margin-bottom: 12px;
+}
+
+.footer p,
+.footer a {
+    color: rgba(255,255,255,.7);
+    display: block;
+    text-decoration: none;
+    margin: 8px 0;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    margin-top: 36px;
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(255,255,255,.55);
+}
+
+.drawer {
+    position: fixed;
+    right: -420px;
+    top: 0;
+    width: min(400px, 100%);
+    height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    border-left: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    z-index: 50;
+    transition: right .3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.drawer-head {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drawer-head button {
+    background: none;
+    border: 0;
+    color: var(--text);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow: auto;
+    padding: 18px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.cart-item h4 {
+    font-size: 15px;
+}
+
+.qty {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.qty button,
+.remove {
+    border: 1px solid var(--border);
+    background: var(--soft);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.drawer-foot {
+    border-top: 1px solid var(--border);
+    padding: 18px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: rgba(0,0,0,.55);
+    place-items: center;
+    padding: 20px;
+}
+
+.modal.open {
+    display: grid;
+}
+
+.modal-card {
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 24px;
+    max-width: 860px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    background: white;
+    border: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-img {
+    min-height: 420px;
+}
+
+.modal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 36px;
+}
+
+.notice {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: var(--green);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+    font-weight: 800;
+}
+
+@media (max-width: 900px) {
+    .hero-grid,
+    .story-grid,
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews,
+    .trust-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .modal-img {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 560px) {
+    .products,
+    .reviews,
+    .trust-grid,
+    .footer-grid,
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-bar {
+        display: block;
+    }
+
+    .sort {
+        width: 100%;
+        margin-top: 14px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .hero {
+        padding: 56px 0;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+    Summer Sale — <strong>25% OFF</strong> sitewide with code <strong>ECO25</strong>
+</div>
+
+<header class="nav">
+    <div class="container nav-inner">
+        <div class="logo">EcoMind</div>
+
+        <nav class="nav-links">
+            <a href="#shop">Shop</a>
+            <a href="#story">Our Story</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="themeBtn" title="Toggle dark mode">🌙</button>
+            <button class="icon-btn" id="cartBtn" title="Open cart">
+                🛒
+                <span class="count" id="cartCount">0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div>
+            <span class="badge">THOUGHTFUL GOODS</span>
+            <h1>Buy less. Buy better.</h1>
+            <p>
+                Practical, long-lasting essentials made with less waste and more care.
+            </p>
+
+            <div class="btn-row">
+                <a href="#shop" class="btn btn-primary">Shop the collection →</a>
+                <a href="#story" class="btn btn-secondary">How we choose</a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>50K+</strong>
+                    <span>Happy customers</span>
+                </div>
+                <div>
+                    <strong>200+</strong>
+                    <span>Eco products</span>
+                </div>
+                <div>
+                    <strong>100%</strong>
+                    <span>Ethically sourced</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=900&h=750&fit=crop&auto=format" alt="Reusable essentials on a wooden table">
+        </div>
+    </div>
+</section>
+
+<section class="section" id="shop">
+    <div class="container">
+        <div class="section-head">
+            <h2>Our picks</h2>
+            <p>Small swaps that add up over time.</p>
+        </div>
+
+        <div class="filter-bar">
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="home">Home</button>
+                <button class="filter-btn" data-category="personal">Personal Care</button>
+                <button class="filter-btn" data-category="fashion">Fashion</button>
+                <button class="filter-btn" data-category="accessories">Accessories</button>
+            </div>
+
+            <select class="sort" id="sortSelect">
+                <option value="featured">Sort: Featured</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+            </select>
+        </div>
+
+        <div class="products" id="products"></div>
+    </div>
+</section>
+
+<section class="section section-soft story" id="story">
+    <div class="container story-grid">
+        <div>
+            <span class="badge">HOW WE CHOOSE</span>
+            <h2>Pragmatic over perfect</h2>
+            <p>
+                We look for things that are made to last, fixable where possible,
+                and easy to reuse or recycle at the end of life.
+            </p>
+            <p>
+                If it doesn't solve a real need or last longer than the disposable
+                version, we don't stock it.
+            </p>
+
+            <div class="values">
+                <div class="value">
+                    <strong>Built to last</strong>
+                    <span>Durable materials over planned obsolescence.</span>
+                </div>
+                <div class="value">
+                    <strong>Fairly made</strong>
+                    <span>We ask about working conditions and pay.</span>
+                </div>
+                <div class="value">
+                    <strong>Less packaging</strong>
+                    <span>Reused, recyclable, or minimal wherever we can.</span>
+                </div>
+                <div class="value">
+                    <strong>Traceable</strong>
+                    <span>Clear info on materials and origins.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-img">
+            <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=700&h=850&fit=crop&auto=format" alt="Small workshop with natural materials">
+        </div>
+    </div>
+</section>
+
+<section class="section" id="reviews">
+    <div class="container">
+        <div class="section-head">
+            <h2>From real people</h2>
+            <p>What our customers actually say.</p>
+        </div>
+
+        <div class="reviews">
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>"Finally found a brand I don't have to second guess. The tee has held up great after a dozen washes."</p>
+                <strong>Sarah M.</strong>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>"Simple stuff done right. Packaging was minimal, shipping was fast, and I actually use everything I bought."</p>
+                <strong>Emma R.</strong>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>"The bottle keeps my coffee hot all morning and I haven't reached for a plastic one since."</p>
+                <strong>David N.</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="trust">
+    <div class="container trust-grid">
+        <div>
+            <div class="trust-icon">🔒</div>
+            <h3>Secure Checkout</h3>
+            <p>SSL encrypted payment flow</p>
+        </div>
+        <div>
+            <div class="trust-icon">🚚</div>
+            <h3>Free Shipping</h3>
+            <p>Orders over $50</p>
+        </div>
+        <div>
+            <div class="trust-icon">↩️</div>
+            <h3>Easy Returns</h3>
+            <p>30-day money-back guarantee</p>
+        </div>
+        <div>
+            <div class="trust-icon">🎧</div>
+            <h3>Support</h3>
+            <p>Friendly customer care</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-soft" id="faq">
+    <div class="container">
+        <div class="section-head">
+            <h2>Questions</h2>
+            <p>A few things people ask.</p>
+        </div>
+
+        <div class="faq">
+            <div class="faq-item">
+                <button class="faq-q">What do you look for in products? <span>+</span></button>
+                <div class="faq-a">Longevity first. We prioritize durable materials, low-impact production, and minimal packaging.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">How long does shipping take? <span>+</span></button>
+                <div class="faq-a">Usually 3–7 business days in the US, with tracking as soon as it ships.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">What's your return policy? <span>+</span></button>
+                <div class="faq-a">30 days for unused items in original packaging. If there's an issue, we'll make it right.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="newsletter-box">
+            <h2>Small swaps in your inbox</h2>
+            <p>New finds, restocks, and practical tips. No spam.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="you@example.com" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" id="contact">
+    <div class="container footer-grid">
+        <div>
+            <h3>EcoMind</h3>
+            <p>Pragmatic essentials for a lower-waste life.</p>
+        </div>
+        <div>
+            <h4>Shop</h4>
+            <a href="#shop">All</a>
+            <a href="#shop">Best sellers</a>
+            <a href="#shop">New in</a>
+        </div>
+        <div>
+            <h4>About</h4>
+            <a href="#story">How we choose</a>
+            <a href="#">Impact</a>
+            <a href="#">Careers</a>
+        </div>
+        <div>
+            <h4>Help</h4>
+            <a href="#faq">FAQ</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        © 2025 EcoMind. All rights reserved.
+    </div>
+</footer>
+
+<aside class="drawer" id="cartDrawer">
+    <div class="drawer-head">
+        <h2>Your Cart</h2>
+        <button id="closeCart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="drawer-foot">
+        <div class="total">
+            <span>Total</span>
+            <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn btn-primary" style="width:100%" id="checkoutBtn">Secure Checkout</button>
+    </div>
+</aside>
+
+<div class="modal" id="modal">
+    <div class="modal-card">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<script>
+const products = [
+    {
+        id: 1,
+        title: "Organic Cotton Crew Tee",
+        category: "fashion",
+        price: 49,
+        original: 69,
+        rating: 4.8,
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&h=600&fit=crop&auto=format",
+        desc: "GOTS-certified organic cotton, soft with just enough weight to last for years."
+    },
+    {
+        id: 2,
+        title: "Bamboo Toothbrush Set",
+        category: "personal",
+        price: 24,
+        original: 34,
+        rating: 4.9,
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=600&fit=crop&auto=format",
+        desc: "Naturally antibacterial bamboo handles with replaceable heads to cut down on waste."
+    },
+    {
+        id: 3,
+        title: "Stainless Steel Bento Box",
+        category: "home",
+        price: 39,
+        original: 49,
+        rating: 4.7,
+        badge: "Sale",
+        image: "https://images.unsplash.com/photo-1546554137-f86b9593a222?w=600&h=600&fit=crop&auto=format",
+        desc: "Leak-resistant, compartmentalized, and built to ditch single-use takeout containers."
+    },
+    {
+        id: 4,
+        title: "Unscented Olive Oil Soap",
+        category: "personal",
+        price: 13,
+        original: 17,
+        rating: 4.9,
+        badge: "Popular",
+        image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=600&fit=crop&auto=format",
+        desc: "Simple, mild, and made with cold-pressed olive oil with zero synthetic fragrance."
+    },
+    {
+        id: 5,
+        title: "Hemp Canvas Tote",
+        category: "accessories",
+        price: 35,
+        original: 45,
+        rating: 4.6,
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&auto=format",
+        desc: "Heavy-duty hemp canvas that actually holds up for grocery runs and weekend trips."
+    },
+    {
+        id: 6,
+        title: "Insulated Steel Water Bottle",
+        category: "home",
+        price: 45,
+        original: 65,
+        rating: 4.8,
+        badge: "Sale",
+        image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=600&h=600&fit=crop&auto=format",
+        desc: "Keeps drinks cold for 24h or hot for 12h. No plastic lining, no plastic taste."
+    },
+    {
+        id: 7,
+        title: "Hand-Carved Olive Wood Comb",
+        category: "personal",
+        price: 19,
+        original: 25,
+        rating: 4.7,
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&h=600&fit=crop&auto=format",
+        desc: "Gentle on hair, naturally anti-static, and each piece has its own grain."
+    },
+    {
+        id: 8,
+        title: "Stonewashed Organic Linen Sheets",
+        category: "home",
+        price: 129,
+        original: 179,
+        rating: 4.9,
+        badge: "Premium",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=600&fit=crop&auto=format",
+        desc: "Breathable, gets softer with every wash. Made from European flax, low-water process."
+    }
+];
+
+let currentCategory = "all";
+let currentSort = "featured";
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+const productsEl = document.getElementById("products");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modalContent");
+
+function money(value) {
+    return "$" + value.toFixed(2);
+}
+
+function getProducts() {
+    let list = currentCategory === "all"
+        ? [...products]
+        : products.filter(p => p.category === currentCategory);
+
+    if (currentSort === "low") list.sort((a, b) => a.price - b.price);
+    if (currentSort === "high") list.sort((a, b) => b.price - a.price);
+    if (currentSort === "rating") list.sort((a, b) => b.rating - a.rating);
+
+    return list;
+}
+
+function renderProducts() {
+    productsEl.innerHTML = getProducts().map(product => `
+        <article class="card">
+            <div class="card-img">
+                <img src="${product.image}" alt="${product.title}">
+                <span class="badge-product">${product.badge}</span>
+            </div>
+            <div class="card-body">
+                <div class="category">${product.category}</div>
+                <h3>${product.title}</h3>
+                <p>${product.desc}</p>
+                <div class="stars">★★★★★ <span style="color:var(--muted)">(${product.rating})</span></div>
+                <div class="price-row">
+                    <span class="price">${money(product.price)}</span>
+                    <span class="original">${money(product.original)}</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="addToCart(${product.id})">Add</button>
+                    <button class="quick" onclick="openModal(${product.id})">👁</button>
+                </div>
+            </div>
+        </article>
+    `).join("");
+}
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) existing.qty += 1;
+    else cart.push({ id: product.id, title: product.title, price: product.price, image: product.image, qty: 1 });
+
+    saveCart();
+    renderCart();
+    toast(product.title + " added to cart");
+}
+
+function changeQty(id, amount) {
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+
+    item.qty += amount;
+    if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+
+    saveCart();
+    renderCart();
+}
+
+function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
+    saveCart();
+    renderCart();
+}
+
+function renderCart() {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    const total = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+
+    cartCount.textContent = count;
+    cartTotal.textContent = money(total);
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `<p style="color:var(--muted);text-align:center;margin-top:40px">Your cart is empty.</p>`;
+        return;
+    }
+
+    cartItems.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.title}">
+            <div>
+                <h4>${item.title}</h4>
+                <strong>${money(item.price)}</strong>
+                <div class="qty">
+                    <button onclick="changeQty(${item.id}, -1)">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${item.id}, 1)">+</button>
+                </div>
+            </div>
+            <button class="remove" onclick="removeItem(${item.id})">×</button>
+        </div>
+    `).join("");
+}
+
+function openModal(id) {
+    const product = products.find(p => p.id === id);
+
+    modalContent.innerHTML = `
+        <div class="modal-grid">
+            <div class="modal-img">
+                <img src="${product.image}" alt="${product.title}">
+            </div>
+            <div class="modal-info">
+                <div class="category">${product.category}</div>
+                <h2 style="font-size:34px;margin:8px 0 12px">${product.title}</h2>
+                <div class="stars">★★★★★ <span style="color:var(--muted)">(${product.rating})</span></div>
+                <p style="color:var(--muted);margin:18px 0">${product.desc}</p>
+                <div class="price-row">
+                    <span class="price">${money(product.price)}</span>
+                    <span class="original">${money(product.original)}</span>
+                </div>
+                <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                <hr style="margin:24px 0;border:0;border-top:1px solid var(--border)">
+                <p style="color:var(--muted)">✓ Free shipping over $50</p>
+                <p style="color:var(--muted)">✓ 30-day returns</p>
+                <p style="color:var(--muted)">✓ Secure checkout</p>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add("open");
+}
+
+function toast(message) {
+    const notice = document.createElement("div");
+    notice.className = "notice";
+    notice.textContent = message;
+    document.body.appendChild(notice);
+
+    setTimeout(() => {
+        notice.remove();
+    }, 2200);
+}
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentCategory = btn.dataset.category;
+        renderProducts();
+    });
+});
+
+document.getElementById("sortSelect").addEventListener("change", event => {
+    currentSort = event.target.value;
+    renderProducts();
+});
+
+document.getElementById("cartBtn").addEventListener("click", () => {
+    cartDrawer.classList.add("open");
+});
+
+document.getElementById("closeCart").addEventListener("click", () => {
+    cartDrawer.classList.remove("open");
+});
+
+document.getElementById("modalClose").addEventListener("click", () => {
+    modal.classList.remove("open");
+});
+
+modal.addEventListener("click", event => {
+    if (event.target === modal) modal.classList.remove("open");
+});
+
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+    if (cart.length === 0) {
+        toast("Your cart is empty");
+        return;
+    }
+
+    toast("Demo checkout complete!");
+    cart = [];
+    saveCart();
+    renderCart();
+    cartDrawer.classList.remove("open");
+});
+
+document.querySelectorAll(".faq-q").forEach(button => {
+    button.addEventListener("click", () => {
+        button.parentElement.classList.toggle("open");
+    });
+});
+
+document.getElementById("newsletterForm").addEventListener("submit", event => {
+    event.preventDefault();
+    event.target.reset();
+    toast("Thanks for subscribing!");
+});
+
+document.getElementById("themeBtn").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    document.getElementById("themeBtn").textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+
+renderProducts();
+renderCart();
+</script>
+
+</body>
+</html>
